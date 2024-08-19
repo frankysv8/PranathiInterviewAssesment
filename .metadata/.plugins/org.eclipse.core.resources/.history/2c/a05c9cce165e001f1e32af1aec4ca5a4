@@ -1,0 +1,15 @@
+package com.pom;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class PropertiesPage {
+
+	private WebDriver driver;
+
+	public PropertiesPage(WebDriver init) {
+		this.driver = init;
+		PageFactory.initElements(driver, this);
+
+	}
+}

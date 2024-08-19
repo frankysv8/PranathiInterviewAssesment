@@ -1,0 +1,108 @@
+package com.pom;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class HomePage {
+
+	private WebDriver driver;
+	
+	@FindBy(xpath = "//a[contains(@href,'hotels')]")
+	private WebElement hotels;
+
+	public WebDriver getDriver() {
+		return driver;
+	}
+
+	public WebElement getHotels() {
+		return hotels;
+	}
+
+	public WebElement getDestination() {
+		return destination;
+	}
+
+	public WebElement getFromDate() {
+		return fromDate;
+	}
+
+	public WebElement getDate() {
+		return date;
+	}
+
+	public WebElement getRoomDropDown() {
+		return roomDropDown;
+	}
+
+	public WebElement getRoomCnt() {
+		return roomCnt;
+	}
+
+	public WebElement getAdultsDropDown() {
+		return adultsDropDown;
+	}
+
+	public WebElement getAdultsCnt() {
+		return adultsCnt;
+	}
+
+	public WebElement getApply() {
+		return apply;
+	}
+
+	public WebElement getSearch() {
+		return search;
+	}
+
+	@FindBy(id = "city")
+	private WebElement destination;
+
+	@FindBy(id = "checkin")
+	private WebElement fromDate;
+
+	@FindBy(xpath = "//div[contains(@class,'DayPicker-Day') and contains(@aria-label,'Wed Aug 21 2024')]")
+	private WebElement date;
+
+	@FindBy(xpath = "//p[text()='Rooms']//parent::div//following-sibling::div/div/span")
+	private WebElement roomDropDown;
+
+	@FindBy(xpath = "//p[text()='Rooms']//parent::div//following-sibling::div/child::ul/li[text()='']")
+	private WebElement roomCnt;
+
+	@FindBy(xpath = "//p[text()='Adults']//parent::div//following-sibling::div/div/span")
+	private WebElement adultsDropDown;
+
+	@FindBy(xpath = "//p[text()='Adults']//parent::div//following-sibling::div/div//following-sibling::ul/li[text()='']")
+	private WebElement adultsCnt;
+
+	@FindBy(xpath = "//button[text()='Apply']")
+	private WebElement apply;
+
+	@FindBy(id = "hsw_search_button")
+	private WebElement search;
+
+	public void navigateToHotels() {
+
+		hotels.click();
+
+	}
+
+	public void enterDetailsToSearchHotel() {
+		destination.sendKeys("Singapore");
+		fromDate.click();
+		date.click();
+		roomDropDown.click();
+		roomCnt.click();
+		adultsDropDown.click();
+		adultsCnt.click();
+		apply.click();
+		search.click();
+	}
+
+	public HomePage(WebDriver init) {
+		this.driver = init;
+		PageFactory.initElements(driver, this);
+	}
+}

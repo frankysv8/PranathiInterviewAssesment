@@ -1,0 +1,21 @@
+package com.helper;
+
+public class DataReaderManager {
+	
+	private DataReaderManager() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static void getInstanceDRM() {
+
+		
+		
+	}
+	
+	private void getInstanceDR() {
+		// TODO Auto-generated method stub
+
+	}
+	
+
+}

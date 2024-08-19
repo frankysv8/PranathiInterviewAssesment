@@ -1,0 +1,26 @@
+package com.baseClass;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class BaseClass {
+
+	public static WebDriver driver;
+
+	public static void browser_Launch(String browser) {
+
+		if (browser.equalsIgnoreCase("chrome")) {
+			driver = new ChromeDriver();
+		} else if (browser.equalsIgnoreCase("firefox")) {
+			driver = new FirefoxDriver();
+		}
+
+	}
+
+	public static void sendText(WebElement element, String value) {
+
+		element.sendKeys(value);
+	}
+}

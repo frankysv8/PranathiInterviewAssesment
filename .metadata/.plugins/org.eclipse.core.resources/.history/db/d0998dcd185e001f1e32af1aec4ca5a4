@@ -1,0 +1,26 @@
+package com.TestPages;
+
+import org.openqa.selenium.WebDriver;
+
+import com.baseClass.BaseClass;
+import com.pom.HomePage;
+import com.pom.PropertiesPage;
+
+public class HotelTest {
+
+	static WebDriver driver;
+	static BaseClass base;
+	HomePage hp;
+	PropertiesPage pp;
+
+	public void validate_5_Star_Rating() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public HotelTest() {
+		hp = new HomePage(driver);
+		pp = new PropertiesPage(driver);
+	}
+
+}

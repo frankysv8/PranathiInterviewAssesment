@@ -1,0 +1,65 @@
+package com.pom;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
+
+import junit.framework.Assert;
+
+public class PropertiesPage {
+
+	private WebDriver driver;
+	static PropertiesPage pp;
+
+	@FindBy(xpath = "//span[contains(text(),'User')]")
+	private WebElement userRating;
+
+	public WebDriver getDriver() {
+		return driver;
+	}
+
+	public WebElement getUserRating() {
+		return userRating;
+	}
+
+	public WebElement getRating() {
+		return rating;
+	}
+
+	public List<WebElement> getHotelTitles() {
+		return hotelTitles;
+	}
+
+	@FindBy(xpath = "//div[@id='POPULAR']//child::ul//descendant::input[@aria-label='5 Star']")
+	private WebElement rating;
+
+	@FindBy(xpath = "//p[@id='hlistpg_hotel_name']/span[contains(@class,'wordBreak')]")
+	private List<WebElement> hotelTitles;
+
+	public static void selectFilter() {
+
+		pp.userRating.click();
+		pp.rating.click();
+	}
+
+	public void validateHotelNames() {
+
+		Assert.assertEquals(getHotelTitles().size(), 10);
+		for (WebElement hotelTitle : getHotelTitles()) {
+
+			String hotel = hotelTitle.getText();
+			System.out.println(hotel);
+
+		}
+	}
+
+	public PropertiesPage(WebDriver init) {
+		this.driver = init;
+		PageFactory.initElements(driver, this);
+
+	}
+}

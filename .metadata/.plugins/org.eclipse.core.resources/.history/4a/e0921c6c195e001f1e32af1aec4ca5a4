@@ -1,0 +1,23 @@
+package com.pom;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class PropertiesPage {
+
+	private WebDriver driver;
+
+	@FindBy(xpath = "//span[contains(text(),'User')]")
+	private WebElement userRating;
+
+	@FindBy(xpath = "//div[@id='POPULAR']//child::ul//descendant::input[@aria-label='5 Star']")
+	private WebElement rating;
+
+	public PropertiesPage(WebDriver init) {
+		this.driver = init;
+		PageFactory.initElements(driver, this);
+
+	}
+}

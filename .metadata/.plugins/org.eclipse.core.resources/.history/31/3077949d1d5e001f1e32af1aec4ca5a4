@@ -1,0 +1,33 @@
+package com.TestPages;
+
+import org.openqa.selenium.WebDriver;
+
+import com.baseClass.BaseClass;
+import com.pom.HomePage;
+import com.pom.PropertiesPage;
+
+public class HotelTest {
+
+	static WebDriver driver;
+	static BaseClass base;
+	HomePage hp;
+	PropertiesPage pp;
+
+	public HotelTest() {
+		hp = new HomePage(driver);
+		pp = new PropertiesPage(driver);
+	}
+
+	public void validate_5_Star_Rating() {
+
+		driver = base.browser_Launch("chrome");
+		base.url_Launch("https://www.makemytrip.com/");
+
+		hp.navigateToHotels();
+		hp.enterDetailsToSearchHotel();
+		pp.selectFilter();
+		pp.validateHotelNames();
+
+	}
+
+}

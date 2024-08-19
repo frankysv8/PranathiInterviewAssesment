@@ -1,0 +1,34 @@
+package com.TestPages;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import com.baseClass.BaseClass;
+import com.helper.DataReaderManager;
+import com.pom.HomePage;
+import com.pom.PropertiesPage;
+
+public class HotelTest extends BaseClass{
+
+	static WebDriver driver;
+	HomePage hp;
+	PropertiesPage pp;
+
+	@Test
+	public void validate_5_Star_Rating() throws IOException {
+
+		driver = base.browser_Launch("chrome");
+		hp = new HomePage(driver);
+		pp = new PropertiesPage(driver);
+		base.url_Launch(DataReaderManager.getInstanceDRM().getInstanceDR().getSourceUrl());
+
+		hp.navigateToHotels();
+		hp.enterDetailsToSearchHotel();
+		pp.selectFilter();
+		pp.validateHotelNames();
+
+	}
+
+}

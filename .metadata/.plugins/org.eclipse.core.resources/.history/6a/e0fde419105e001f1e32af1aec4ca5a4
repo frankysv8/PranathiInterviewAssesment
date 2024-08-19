@@ -1,0 +1,11 @@
+package com.runner;
+
+import com.baseClass.BaseClass;
+
+public class Runner extends BaseClass {
+
+	public static void main(String[] args) {
+
+		browser_Launch("chrome");
+	}
+}

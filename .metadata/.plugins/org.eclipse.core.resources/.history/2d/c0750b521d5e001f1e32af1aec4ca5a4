@@ -1,0 +1,16 @@
+package com.helper;
+
+public class DataReader {
+	
+	public DataReader() {
+		
+		
+	
+	}
+	
+	public void getSourceUrl() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
